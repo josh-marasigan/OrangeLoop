@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    android:theme="@android:style/Theme.NoTitleBar"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity"
+    android:background="@drawable/paper_bg"
+    >
+
+    <com.threeamstudios.theorangeloop.MyCustomTextView
+        android:fontFamily="sans-serif-light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="45sp"
+        android:text="WHAT'S&#xA;HAPPENING&#xA;TODAY?"
+        android:id="@+id/messageMain"
+        android:textColor="#B45F04"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="5sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <com.threeamstudios.theorangeloop.MyCustomButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GET IN THE LOOP!"
+        android:id="@+id/button"
+        android:textSize="30sp"
+        android:textColor="#FFFF"
+        android:background="@drawable/button_styles"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

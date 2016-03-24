@@ -24,17 +24,19 @@
         android:textColor="#B45F04"
         android:gravity="center_horizontal"
         android:lineSpacingExtra="5sp"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="119dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
     <com.threeamstudios.theorangeloop.MyCustomButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GET IN THE LOOP!"
+        android:text="@string/home_greeting"
         android:id="@+id/button"
         android:textSize="30sp"
         android:textColor="#FFFF"
         android:background="@drawable/button_styles"
+        android:layout_marginBottom="41dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 

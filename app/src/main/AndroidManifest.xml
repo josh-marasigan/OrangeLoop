@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.threeamstudios.theorangeloop"
-    android:theme="@android:style/Theme.NoTitleBar"
-    >
+    android:theme="@android:style/Theme.NoTitleBar" >
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="The Orange Loop"
-        android:supportsRtl="true"
-        >
+        android:supportsRtl="true" >
         <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

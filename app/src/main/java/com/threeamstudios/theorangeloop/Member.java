@@ -12,4 +12,11 @@ public class Member {
     private ArrayList<Organization> organizationList;
 
     // Getters and setters
+    public String getName() {
+        return this.memberName;
+    }
+
+    public ArrayList<Organization> getOrganizationList() {
+        return this.organizationList;
+    }
 }

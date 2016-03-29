@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.threeamstudios.theorangeloop.MemberHomePage"
+    android:background="@drawable/paper_bg">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:id="@+id/Club_Listings"
+        android:background="#96000000"
+        >
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="357dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/club_A"
+            >
+
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:src="@drawable/club_1" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="VSA"
+                    android:id="@+id/event_1_title"
+                    android:layout_gravity="center_horizontal"
+
+                    android:textColor="#FFFF" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Flag Football"
+                    android:id="@+id/even_1_desc"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#FFFF"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="3/30/16"
+                    android:id="@+id/textView"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#FFFF"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="7:00 PM"
+                    android:id="@+id/textView2"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#FFFF"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="Register"
+                    android:id="@+id/get_event_1"
+                    android:background="@drawable/small_button_styles"
+                    android:textColor="#FFFF"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="12dp"
+                    android:onClick="goToClub"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/club_B">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="174dp"
+                android:layout_height="match_parent"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="FSA"
+                    android:id="@+id/event_2_title"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#FFFF"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Modern Dance"
+                    android:id="@+id/even_2_desc"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#FFFF"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="3/30/16"
+                    android:id="@+id/textViewb"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#FFFF"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="6:00 PM"
+                    android:id="@+id/textView2b"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#FFFF"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="Register"
+                    android:id="@+id/get_event_2"
+                    android:background="@drawable/small_button_styles"
+                    android:textColor="#FFFF"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="194dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:src="@drawable/club_2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/club_C">
+
+            <ImageView
+                android:layout_width="177dp"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:src="@drawable/club_3" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="174dp"
+                android:layout_height="match_parent"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Epic"
+                    android:id="@+id/event_3_title"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#FFFF"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="Small Group"
+                    android:id="@+id/even_3_desc"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#FFFF"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="3/30/16"
+                    android:id="@+id/textViewc"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#FFFF"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:text="9:00 PM"
+                    android:id="@+id/textView3b"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#FFFF"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="Register"
+                    android:id="@+id/get_event_3"
+                    android:background="@drawable/small_button_styles"
+                    android:textColor="#FFFF"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

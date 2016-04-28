@@ -84,9 +84,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return true;
     }
 
-    public Cursor getData(int id){
+    public Cursor getDataOrganization(int id){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from contacts where id="+id+"", null );
+        Cursor res =  db.rawQuery( "select * from organizations where id="+id+"", null );
         return res;
     }
     public boolean updateOrganization (Integer id, String name, String desc, Integer size)
@@ -105,6 +105,61 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return db.delete(TABLE_ORGANIZATIONS,
                 "id = ? ",
                 new String[] { Integer.toString(id) });
+    }
+    public ArrayList<String> getAllOrganization(){
+        ArrayList<String> array_list = new ArrayList<String>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select * from organizations", null );
+        res.moveToFirst();
+
+        while(res.isAfterLast() == false){
+            array_list.add(res.getString(res.getColumnIndex(ORG_NAME)));
+            res.moveToNext();
+        }
+        return array_list;
+    }
+
+    public boolean insertMember(String name){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("name", name);
+        db.insert(TABLE_MEMBERS, null, contentValues);
+        return true;
+    }
+
+    public Cursor getDataMember(int id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select * from members where id="+id+"", null );
+        return res;
+    }
+    public boolean updateMember (Integer id, String name)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("name", name);
+        db.update(TABLE_MEMBERS, contentValues, "id = ? ", new String[] { Integer.toString(id) } );
+        return true;
+    }
+    public Integer deleteMember (Integer id)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_MEMBERS,
+                "id = ? ",
+                new String[] { Integer.toString(id) });
+    }
+    public ArrayList<String> getAllMember(){
+        ArrayList<String> array_list = new ArrayList<String>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select * from members", null );
+        res.moveToFirst();
+
+        while(res.isAfterLast() == false){
+            array_list.add(res.getString(res.getColumnIndex(MEMBER_NAME)));
+            res.moveToNext();
+        }
+        return array_list;
     }
 
     // Update Database when need be

@@ -36,6 +36,7 @@ public class MainActivity extends Activity {
     public void goToHome(View view) {
         Intent transition = new Intent(this, MemberHomePage.class);
         startActivity(transition);
+
     }
 
 }

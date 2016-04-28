@@ -5,9 +5,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
+import java.util.ArrayList;
 
 // Abstract to ensure Singleton design. Only one instantiation is allowed for am SQLite DB.
 public class DatabaseHandler extends SQLiteOpenHelper {
+
+    public static int returnOne(){
+        return 1;
+    }
 
     // No Default constructor in SQLiteOpenHelper. Private for Singleton Design Pattern
     private DatabaseHandler(Context context) {

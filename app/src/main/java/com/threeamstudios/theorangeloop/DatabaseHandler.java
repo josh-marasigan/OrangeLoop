@@ -1,5 +1,7 @@
 package com.threeamstudios.theorangeloop;
 
+import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
@@ -65,6 +67,39 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // Execute commands
         db.execSQL(CREATE_ORG_TABLE);
         db.execSQL(CREATE_MEMBERS_TABLE);
+    }
+
+    public boolean insertOrganization(String name, String desc, Integer size){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("name", name);
+        contentValues.put("desc", desc);
+        contentValues.put("size", size);
+        db.insert(TABLE_ORGANIZATIONS, null, contentValues);
+        return true;
+    }
+
+    public Cursor getData(int id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select * from contacts where id="+id+"", null );
+        return res;
+    }
+    public boolean updateOrganization (Integer id, String name, String desc, Integer size)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("name", name);
+        contentValues.put("desc", desc);
+        contentValues.put("size", size);
+        db.update(TABLE_ORGANIZATIONS, contentValues, "id = ? ", new String[] { Integer.toString(id) } );
+        return true;
+    }
+    public Integer deleteOrganization (Integer id)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_ORGANIZATIONS,
+                "id = ? ",
+                new String[] { Integer.toString(id) });
     }
 
     // Update Database when need be

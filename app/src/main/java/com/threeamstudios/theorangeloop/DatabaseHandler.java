@@ -2,6 +2,7 @@ package com.threeamstudios.theorangeloop;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.Context;
@@ -15,7 +16,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     // No Default constructor in SQLiteOpenHelper. Private for Singleton Design Pattern
-    private DatabaseHandler(Context context) {
+    public DatabaseHandler(Context context) {
         super(context, DB_NAME, null, 1);
     }
 
@@ -43,7 +44,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String ORG_DESC = "description";
 
     // Retrieve following data from controller
-    private static final Integer ORG_SIZE = -1;
+    private static final String ORG_SIZE = "size";
 
     // MEMBER Table fields/Columns
     private static final String MEMBER_ID = "id";
@@ -57,16 +58,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         String CREATE_ORG_TABLE =
                 "CREATE TABLE " + TABLE_ORGANIZATIONS
                         + "("
-                        + ORG_ID + " INTEGER PRIMARY KEY,"
-                        + ORG_NAME + " TEXT,"
-                        + ORG_DESC + " TEXT"
-                        + ORG_SIZE + "INTEGER"
+                        + ORG_ID + " INTEGER PRIMARY KEY, "
+                        + ORG_NAME + " TEXT, "
+                        + ORG_DESC + " TEXT, "
+                        + ORG_SIZE + " INTEGER "
                         + ")";
         String CREATE_MEMBERS_TABLE =
                 "CREATE TABLE " + TABLE_MEMBERS
                         + "("
-                        + MEMBER_ID + " INTEGER PRIMARY KEY,"
-                        + MEMBER_NAME + " TEXT,"
+                        + MEMBER_ID + " INTEGER PRIMARY KEY, "
+                        + MEMBER_NAME + " TEXT "
                         + ")";
 
         // Execute commands
@@ -74,13 +75,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL(CREATE_MEMBERS_TABLE);
     }
 
-    public boolean insertOrganization(String name, String desc, Integer size){
+    public boolean insertOrganization(String name, String desc, String size){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("name", name);
         contentValues.put("desc", desc);
         contentValues.put("size", size);
         db.insert(TABLE_ORGANIZATIONS, null, contentValues);
+       // db.insert("organizations", null, contentValues);
         return true;
     }
 
@@ -89,7 +91,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor res =  db.rawQuery( "select * from organizations where id="+id+"", null );
         return res;
     }
-    public boolean updateOrganization (Integer id, String name, String desc, Integer size)
+    public boolean updateOrganization (Integer id, String name, String desc, String size)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -98,6 +100,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         contentValues.put("size", size);
         db.update(TABLE_ORGANIZATIONS, contentValues, "id = ? ", new String[] { Integer.toString(id) } );
         return true;
+    }
+    public int numberOfRowsOrganization(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        int numRows = (int) DatabaseUtils.queryNumEntries(db, TABLE_ORGANIZATIONS);
+        return numRows;
     }
     public Integer deleteOrganization (Integer id)
     {
@@ -110,16 +117,33 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ArrayList<String> array_list = new ArrayList<String>();
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from organizations", null );
-        res.moveToFirst();
+        //Cursor res =  db.rawQuery( "select name from organizations", null );
+        Cursor res = null;
+            String Query ="SELECT * FROM organizations";
+
+            res = db.rawQuery(Query,null);
+            if(res != null && res.moveToFirst()){
+                do{
+                    array_list.add(res.getString(res.getColumnIndex(ORG_NAME)));
+                }while(res.moveToNext());
+
+            }
+            res.close();
+
+     /*   res.moveToFirst();
 
         while(res.isAfterLast() == false){
             array_list.add(res.getString(res.getColumnIndex(ORG_NAME)));
             res.moveToNext();
-        }
+        }*/
         return array_list;
     }
 
+    public int numberOfRowsMember(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        int numRows = (int) DatabaseUtils.queryNumEntries(db, TABLE_MEMBERS);
+        return numRows;
+    }
     public boolean insertMember(String name){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -166,7 +190,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Upgrading database
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
-
+        db.execSQL("DROP TABLE IF EXISTS contacts");
+        onCreate(db);
     }
 
     // Methods, CRUD operations for database.

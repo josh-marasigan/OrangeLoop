@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout
-    android:theme="@android:style/Theme.NoTitleBar"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
@@ -28,7 +27,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <com.threeamstudios.theorangeloop.MyCustomButton
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/home_greeting"
@@ -39,7 +38,7 @@
         android:layout_marginBottom="41dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="goToHome"
-        />
+        android:nestedScrollingEnabled="false"
+        android:onClick="goToHome" />
 
 </RelativeLayout>

@@ -1,11 +1,11 @@
 package com.threeamstudios.theorangeloop;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
-public class MemberHomePage extends AppCompatActivity {
+public class MemberHomePage extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,9 +1,9 @@
 package com.threeamstudios.theorangeloop;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 
-public class EventPage extends AppCompatActivity {
+public class EventPage extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

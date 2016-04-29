@@ -26,10 +26,19 @@
             android:id="@+id/club_A"
             >
 
+            <!-- HTTP Image -->
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:contentDescription="@string/hello"
+                android:maxHeight="70dp"
+                android:maxWidth="70dp" />
+
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:weightSum="1">
 
@@ -94,8 +103,8 @@
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="174dp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:weightSum="1">
 
                 <TextView
@@ -158,8 +167,8 @@
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="174dp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:weightSum="1">
 
                 <TextView
@@ -210,6 +219,61 @@
                     android:onClick="goToClub" />
 
             </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="IEEE"
+                android:id="@+id/textView4"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#FFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Hardware Sucks"
+                android:id="@+id/textView5"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#FFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="3/30/16"
+                android:id="@+id/textView6"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#FFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="9:00 PM"
+                android:id="@+id/textView7"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#FFFF" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="Register"
+                android:id="@+id/button2"
+                android:background="@drawable/small_button_styles"
+                android:textColor="#FFFF"
+                android:layout_gravity="center_horizontal"
+                android:textSize="12dp"
+                android:onClick="goToClub" />
         </LinearLayout>
 
     </LinearLayout>

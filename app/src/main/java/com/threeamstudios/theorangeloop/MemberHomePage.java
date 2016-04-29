@@ -16,11 +16,28 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
 
 public class MemberHomePage extends Activity {
 
+    public static ArrayList<Organization> organizationArrayList;
+    private static ArrayList<String> URLfields;
+
+    protected static void getImageURL() {
+        String temp0 = "https://i.imgur.com/hsePrlh.jpg";
+        String temp1 = "https://i.imgur.com/l23SwNr.jpg";
+        String temp2 = "https://i.imgur.com/doO0i5L.jpg";
+        String temp3 = "https://i.imgur.com/2DrzOh2.jpg";
+
+        URLfields.add(temp0);
+        URLfields.add(temp1);
+        URLfields.add(temp2);
+        URLfields.add(temp3);
+    }
+
     public static final String URL =
             "https://i.imgur.com/ZCUZZfw.jpg";
+
     ImageView imageView;
 
     @Override
@@ -40,6 +57,8 @@ public class MemberHomePage extends Activity {
         // Create an object for subclass of AsyncTask
         GetXMLTask task = new GetXMLTask();
         // Execute the task
+
+        // Surround w/ loop
         task.execute(new String[]{URL});
     }
 
@@ -77,15 +96,16 @@ public class MemberHomePage extends Activity {
                 bitmap = BitmapFactory.
                         decodeStream(stream, null, bmOptions);
                 stream.close();
-            } catch (IOException e1) {
-                e1.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
             return bitmap;
         }
 
-        // Makes HttpURLConnection and returns InputStream
         private InputStream getHttpConnection(String urlString)
+
                 throws IOException {
+
             InputStream stream = null;
             java.net.URL url = new URL(urlString);
             URLConnection connection = url.openConnection();
@@ -98,8 +118,8 @@ public class MemberHomePage extends Activity {
                 if (httpConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
                     stream = httpConnection.getInputStream();
                 }
-            } catch (Exception ex) {
-                ex.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return stream;
         }

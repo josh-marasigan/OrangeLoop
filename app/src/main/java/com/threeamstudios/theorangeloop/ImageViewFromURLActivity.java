@@ -17,12 +17,10 @@ import android.widget.ImageView;
  */
 public class ImageViewFromURLActivity extends Activity {
 
-
     public static final String URL =
             "http://theopentutorials.com/totwp331/wp-content/uploads/totlogo.png";
     ImageView imageView;
 
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member_home_page);

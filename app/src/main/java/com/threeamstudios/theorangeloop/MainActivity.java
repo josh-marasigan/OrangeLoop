@@ -16,7 +16,6 @@ public class MainActivity extends Activity {
     private static final String TAG = "OrangeLoop";
 	
 	// Test Comment
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -40,8 +39,6 @@ public class MainActivity extends Activity {
 
     // Executes with button interaction. Goes to personal user home page
     public void goToHome(View view) {
-
-
         Intent transition = new Intent(this, MemberHomePage.class);
         startActivity(transition);
     }

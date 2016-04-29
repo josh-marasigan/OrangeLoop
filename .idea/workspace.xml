@@ -115,12 +115,12 @@
       </file>
       <file leaf-file-name="activity_member_home_page.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_member_home_page.xml">
-          <provider editor-type-id="android-designer">
+          <provider selected="true" editor-type-id="android-designer">
             <state />
           </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.05685619">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -1681,8 +1681,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/threeamstudios/theorangeloop/ImageViewFromURLActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/threeamstudios/theorangeloop/EventPage.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_member_home_page.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/threeamstudios/theorangeloop/MemberHomePage.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_member_home_page.xml" />
       </list>
     </option>
   </component>
@@ -2565,12 +2565,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_member_home_page.xml">
-      <provider editor-type-id="android-designer">
+      <provider selected="true" editor-type-id="android-designer">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05685619">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
           <folding />
         </state>
       </provider>

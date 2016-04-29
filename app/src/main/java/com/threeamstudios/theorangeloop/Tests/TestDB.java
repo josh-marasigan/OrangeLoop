@@ -20,7 +20,6 @@ public class TestDB extends AndroidTestCase {
         org.setOrgSize(5);
         org.setOrgName("Test Organization");
         ArrayList<Member> orgMembers = new ArrayList<Member>();
-        ArrayList<Organization> orgList = new ArrayList<Organization>();
         orgMembers.add(new Member("Fred"));
         org.setOrgMembers(orgMembers);
 
@@ -34,24 +33,28 @@ public class TestDB extends AndroidTestCase {
         Member mem = new Member();
         mem.setName("Kevin");
         ArrayList<Organization> orgList = new ArrayList<Organization>();
+
         orgList.add(new Organization("TesPA", 0));
+        orgList.add(new Organization("Lions", 10));
         mem.setOrganizationList(orgList);
 
-        assertEquals("Kevin",mem.getName());
+        assertEquals("Kevin", mem.getName());
+        assertEquals("Lions", mem.getOrganizationList().get(1).getOrgName());
         assertEquals("TesPA", mem.getOrganizationList().get(0).getOrgName());
         assertEquals(new Integer(0), mem.getOrganizationList().get(0).getOrgSize());
 
     }
 
-    public void testCreateDB() throws Throwable {
-
-/*        DatabaseHandler x = DatabaseHandler.getInstance(context);
-       // assertNotNull(1);
-       System.out.println("Hello World");*/
-        //false();
-        assertEquals(4, 2 + 2);
-        assertEquals(0, 0);
-        //DatabaseHandler x = DatabaseHandler.getInstance(context);
+    public void testbestOrgOfMem() throws Throwable {
+      Member mem = new Member();
+      mem.setName("Charles");
+      ArrayList<Organization> orgList = new ArrayList<Organization>();
+      orgList.add(new Organization("TesPA", 0));
+      orgList.add(new Organization("FSA", 7));
+      orgList.add(new Organization("Lions", 10));
+      orgList.add(new Organization("EE461L", 60));
+      mem.setOrganizationList(orgList);
+      assertEquals("EE461L", MemberController.bestOrgOfMem(mem));
 
     }
     public void testCreateDC() throws Throwable {

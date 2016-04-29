@@ -5,14 +5,14 @@ import com.threeamstudios.theorangeloop.Params;
  */
 public class MemberController {
 
-    public Boolean busyMember(Member member){
+    public static Boolean busyMember(Member member){
         if(member.getOrganizationList().size() > Params.busyMember){
             return true;
         }else{
             return false;
         }
     }
-    public String bestOrgOfMem(Member member){
+    public static String bestOrgOfMem(Member member){
         Organization tmp = new Organization();
         if(member.getOrganizationList().size()!= 0){
             tmp = member.getOrganizationList().get(0);

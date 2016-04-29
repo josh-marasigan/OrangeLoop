@@ -8,9 +8,9 @@ import java.util.ArrayList;
  */
 public class Organization {
     // Fields Regarding organization
-    private static String orgName;
-    private static Integer orgSize;
-    private static ArrayList<Member> orgMembers;
+    private String orgName;
+    private Integer orgSize;
+    private ArrayList<Member> orgMembers;
 
     public Organization(){
         this.orgName = null;
@@ -21,7 +21,8 @@ public class Organization {
     public Organization(String orgName, Integer orgSize){
         this.orgName = orgName;
         this.orgSize = orgSize;
-    }
+        this.orgMembers = null;
+}
 
     public Organization(String orgName, Integer orgSize, ArrayList<Member> orgMembers){
         this.orgName = orgName;
@@ -45,10 +46,10 @@ public class Organization {
     }
 
     public void setOrgSize(Integer orgSize) {
-        Organization.orgSize = orgSize;
+        this.orgSize = orgSize;
     }
 
     public void setOrgMembers(ArrayList<Member> orgMembers) {
-        Organization.orgMembers = orgMembers;
+        this.orgMembers = orgMembers;
     }
 }

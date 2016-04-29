@@ -4,5 +4,12 @@ package com.threeamstudios.theorangeloop;
  * Created by Josh M on 3/25/2016.
  */
 public class OrganizationController {
-    // Methods regarding database interactions and Organization actions.
+    public Boolean popularClub(Organization organization){
+        if(organization.getOrgSize() > 20){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
 }

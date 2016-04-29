@@ -3,6 +3,8 @@ package com.threeamstudios.theorangeloop.Tests;
 import android.content.Context;
 import android.test.AndroidTestCase;
 import com.threeamstudios.theorangeloop.*;
+import com.threeamstudios.theorangeloop.Params;
+import com.threeamstudios.theorangeloop.MemberHomePage;
 
 import java.util.ArrayList;
 
@@ -57,8 +59,15 @@ public class TestDB extends AndroidTestCase {
       assertEquals("EE461L", MemberController.bestOrgOfMem(mem));
 
     }
-    public void testCreateDC() throws Throwable {
+    public void bestOrganization() throws Throwable {
+        MemberHomePage.organizationArrayList.add(new Organization("TesPA", 86));
+        MemberHomePage.organizationArrayList.add(new Organization("Lions", 142));
+        MemberHomePage.organizationArrayList.add(new Organization("EE461L", 81));
+        MemberHomePage.organizationArrayList.add(new Organization("FSA", 120));
+        MemberHomePage.organizationArrayList.add(new Organization("VSA", 165));
+        MemberHomePage.organizationArrayList.add(new Organization("CSA", 103));
+        MemberHomePage.organizationArrayList.add(new Organization("TSA", 92));
+        assertEquals("VSA", OrganizationController.bestOrganization());
 
-        assertEquals(0, 0);
     }
 }

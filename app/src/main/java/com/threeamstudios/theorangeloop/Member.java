@@ -12,7 +12,7 @@ public class Member {
     private ArrayList<Organization> organizationList;
 
     public Member(){
-        this.memberName = "Fred";
+        this.memberName = null;
         this.organizationList = null;
     }
 

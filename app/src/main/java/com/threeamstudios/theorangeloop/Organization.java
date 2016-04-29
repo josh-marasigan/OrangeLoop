@@ -18,6 +18,11 @@ public class Organization {
         orgMembers = null;
     }
 
+    public Organization(String orgName, Integer orgSize){
+        this.orgName = orgName;
+        this.orgSize = orgSize;
+    }
+
     public Organization(String orgName, Integer orgSize, ArrayList<Member> orgMembers){
         this.orgName = orgName;
         this.orgSize = orgSize;

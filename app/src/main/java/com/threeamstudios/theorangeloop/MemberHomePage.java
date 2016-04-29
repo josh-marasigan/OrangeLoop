@@ -59,6 +59,7 @@ public class MemberHomePage extends Activity {
         // Execute the task
 
         // Surround w/ loop
+
         task.execute(new String[]{URL});
     }
 

@@ -29,7 +29,7 @@
             <!-- HTTP Image -->
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="73dp"
+                android:layout_width="69dp"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/hello"
                 android:maxHeight="70dp"
@@ -37,7 +37,7 @@
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="match_parent"
+                android:layout_width="267dp"
                 android:layout_height="wrap_content"
                 android:weightSum="1">
 
@@ -81,7 +81,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
-                    android:text="Register"
+                    android:text="VIEW"
                     android:id="@+id/get_event_1"
                     android:background="@drawable/small_button_styles"
                     android:textColor="#FFFF"
@@ -100,9 +100,18 @@
             android:layout_gravity="center_horizontal"
             android:id="@+id/club_B">
 
+            <!-- HTTP Image -->
+            <ImageView
+                android:id="@+id/imageViewB"
+                android:layout_width="69dp"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/hello"
+                android:maxHeight="70dp"
+                android:maxWidth="70dp" />
+
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="match_parent"
+                android:layout_width="264dp"
                 android:layout_height="wrap_content"
                 android:weightSum="1">
 
@@ -145,7 +154,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
-                    android:text="Register"
+                    android:text="VIEW"
                     android:id="@+id/get_event_2"
                     android:background="@drawable/small_button_styles"
                     android:textColor="#FFFF"
@@ -164,9 +173,18 @@
             android:layout_gravity="center_horizontal"
             android:id="@+id/club_C">
 
+            <!-- HTTP Image -->
+            <ImageView
+                android:id="@+id/imageViewC"
+                android:layout_width="69dp"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/hello"
+                android:maxHeight="70dp"
+                android:maxWidth="70dp" />
+
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="match_parent"
+                android:layout_width="266dp"
                 android:layout_height="wrap_content"
                 android:weightSum="1">
 
@@ -209,7 +227,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
-                    android:text="Register"
+                    android:text="VIEW"
                     android:id="@+id/get_event_3"
                     android:background="@drawable/small_button_styles"
                     android:textColor="#FFFF"
@@ -222,10 +240,19 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="match_parent"
+            android:layout_width="166dp"
             android:layout_height="wrap_content"
             android:weightSum="1"
             android:layout_gravity="center_horizontal">
+
+            <!-- HTTP Image -->
+            <ImageView
+                android:id="@+id/imageViewD"
+                android:layout_width="69dp"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/hello"
+                android:maxHeight="70dp"
+                android:maxWidth="70dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -266,7 +293,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
-                android:text="Register"
+                android:text="VIEW"
                 android:id="@+id/button2"
                 android:background="@drawable/small_button_styles"
                 android:textColor="#FFFF"

@@ -11,6 +11,20 @@ public class Member {
     private String memberName;
     private ArrayList<Organization> organizationList;
 
+     public Member(){
+        this.memberName = "Fred";
+        this.organizationList = null;
+    }
+
+    public Member(String name){
+        this.memberName = name;
+    }
+
+    public void Member(String memberName, ArrayList<Organization> organizationList){
+        this.memberName = memberName;
+        this.organizationList = organizationList;
+    }
+
     // Getters and setters
     public String getName() {
         return this.memberName;
@@ -19,4 +33,13 @@ public class Member {
     public ArrayList<Organization> getOrganizationList() {
         return this.organizationList;
     }
+
+    public void setName(String name){
+        this.memberName = name;
+    }
+
+    public void setOrganizationList(ArrayList<Organization> organizationList) {
+        this.organizationList = organizationList;
+    }
+
 }

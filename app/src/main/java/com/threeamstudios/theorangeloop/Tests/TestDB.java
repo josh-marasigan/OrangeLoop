@@ -13,9 +13,6 @@ import java.util.ArrayList;
  */
 public class TestDB extends AndroidTestCase {
 
-    public void testDatabaseHandler() throws Throwable{
-        assertEquals(1,DatabaseHandler.returnOne());
-    }
 
     public void testOrganizationSetters() throws Throwable {
         Organization org = new Organization();
@@ -59,7 +56,7 @@ public class TestDB extends AndroidTestCase {
       assertEquals("EE461L", MemberController.bestOrgOfMem(mem));
 
     }
-    public void bestOrganization() throws Throwable {
+   /* public void testBestOrganization() throws Throwable {
         MemberHomePage.organizationArrayList.add(new Organization("TesPA", 86));
         MemberHomePage.organizationArrayList.add(new Organization("Lions", 142));
         MemberHomePage.organizationArrayList.add(new Organization("EE461L", 81));
@@ -69,5 +66,5 @@ public class TestDB extends AndroidTestCase {
         MemberHomePage.organizationArrayList.add(new Organization("TSA", 92));
         assertEquals("VSA", OrganizationController.bestOrganization());
 
-    }
+    }*/
 }

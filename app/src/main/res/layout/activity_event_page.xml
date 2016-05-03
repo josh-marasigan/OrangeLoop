@@ -45,11 +45,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Group Study"
+            android:id="@+id/textView9"
+            android:textColor="#123456"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Event Description"
             android:id="@+id/textView8"
             android:layout_below="@+id/textView3"
             android:layout_centerHorizontal="true"
             android:textColor="#B45F04" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Students get ready for FINALS"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/EventName1"
+            android:textColor="#123456"/>
     </LinearLayout>
 
 </RelativeLayout>

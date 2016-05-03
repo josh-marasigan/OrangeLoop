@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 
 /* ------- */
 /* [Model] */
@@ -42,5 +43,9 @@ public class MainActivity extends Activity {
         Intent transition = new Intent(this, MemberHomePage.class);
         startActivity(transition);
     }
+ /*   public void buttonOnClick(View v){
+        Button button =(Button)v;
+        ((Button) v ).setText("clicked");
+    }*/
 
 }

@@ -79,8 +79,6 @@ public class EventPage extends Activity {
                 }
             }
         });
-
-
     }
 
     private class GetXMLTask extends AsyncTask<String, Void, Bitmap> {
@@ -140,7 +138,4 @@ public class EventPage extends Activity {
         }
     }
 
-    private static String eventNames(){
-        return "hi";
-    }
 }

@@ -64,7 +64,6 @@ public class MemberHomePage extends Activity {
     }
 
     // Executes with button interaction. Goes to club event page.
-    // Max 4 Clubs per page.
     public void goToClub(View view) {
         Intent transition = new Intent(this, EventPage.class);
         startActivity(transition);

@@ -1,10 +1,7 @@
 package com.threeamstudios.theorangeloop.Tests;
 
-import android.content.Context;
 import android.test.AndroidTestCase;
 import com.threeamstudios.theorangeloop.*;
-import com.threeamstudios.theorangeloop.Params;
-import com.threeamstudios.theorangeloop.MemberHomePage;
 
 import java.util.ArrayList;
 

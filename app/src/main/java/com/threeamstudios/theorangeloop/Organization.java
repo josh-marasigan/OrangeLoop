@@ -10,6 +10,7 @@ public class Organization {
     // Fields Regarding organization
     private String orgName;
     private Integer orgSize;
+    private String orgDesc;
     private ArrayList<Member> orgMembers;
 
     public Organization(){
@@ -53,5 +54,12 @@ public class Organization {
 
     public void setOrgMembers(ArrayList<Member> orgMembers) {
         this.orgMembers = orgMembers;
+    }
+
+    public String getOrgDesc() {
+        return orgDesc;
+    }
+    public void setOrgDesc(String orgDesc) {
+        this.orgDesc = orgDesc;
     }
 }

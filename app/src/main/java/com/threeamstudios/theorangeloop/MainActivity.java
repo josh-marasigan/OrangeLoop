@@ -40,7 +40,8 @@ public class MainActivity extends Activity {
 
     // Executes with button interaction. Goes to personal user home page
     public void goToHome(View view) {
-        Intent transition = new Intent(this, MemberHomePage.class);
+        // Intent transition = new Intent(this, MemberHomePage.class);
+        Intent transition = new Intent(this, MasterOrganizationList.class);
         startActivity(transition);
     }
 

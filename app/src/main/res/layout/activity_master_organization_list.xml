@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    tools:context="com.threeamstudios.theorangeloop.MemberHomePage"
+    android:background="@drawable/paper_bg">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:background="#96000000"
+            >
+
+            <!-- Dynamically add elements to list -->
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="VIEW"
+                android:id="@+id/addBtn"
+                android:background="@drawable/small_button_styles"
+                android:textColor="#FFFF"
+                android:layout_gravity="center_horizontal"
+                android:textSize="12dp"
+                android:onClick="addItems"
+                android:focusable="false"/>
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/list">
+            </ListView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

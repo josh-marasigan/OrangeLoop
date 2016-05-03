@@ -52,18 +52,19 @@ public class MemberHomePage extends Activity {
 
         setContentView(R.layout.activity_member_home_page);
 
-        imageView = (ImageView) findViewById(R.id.imageView);
+        // imageView = (ImageView) findViewById(R.id.imageView);
 
         // Create an object for subclass of AsyncTask
-        GetXMLTask task = new GetXMLTask();
+        // GetXMLTask task = new GetXMLTask();
         // Execute the task
 
         // Surround w/ loop
 
-        task.execute(new String[]{URL});
+        // task.execute(new String[]{URL});
     }
 
-    // Executes with button interaction. Goes to club event page
+    // Executes with button interaction. Goes to club event page.
+    // Max 4 Clubs per page.
     public void goToClub(View view) {
         Intent transition = new Intent(this, EventPage.class);
         startActivity(transition);

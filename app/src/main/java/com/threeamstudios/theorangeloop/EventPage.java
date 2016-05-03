@@ -100,10 +100,9 @@ public class EventPage extends Activity {
             }
             return stream;
         }
-
     }
-    private static String eventNames(){
 
+    private static String eventNames(){
         return "hi";
     }
 }

@@ -66,6 +66,17 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:id="@+id/EventName1"
             android:textColor="#123456"/>
+
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:id="@+id/toggleButton"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/imageViewClub"
+            android:layout_centerHorizontal="true"
+            android:checked="false" />
+
     </LinearLayout>
 
 </RelativeLayout>

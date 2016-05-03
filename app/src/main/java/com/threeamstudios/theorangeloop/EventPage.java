@@ -7,7 +7,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.ToggleButton;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,7 +19,7 @@ import java.net.URLConnection;
 
 public class EventPage extends Activity {
 
-
+    private Organization organization;
     public static final String URL = "https://i.imgur.com/hsePrlh.jpg";
     ImageView imageView;
 
@@ -27,22 +29,39 @@ public class EventPage extends Activity {
 
         //Remove title bar
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
         //Remove notification bar
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         setContentView(R.layout.activity_event_page);
-
         // Get Club Image
         imageView = (ImageView) findViewById(R.id.imageViewClub);
-
         // Create an object for subclass of AsyncTask
         GetXMLTask task = new GetXMLTask();
         // Execute the task
-
         // Surround w/ loop
-
         task.execute(new String[]{URL});
+
+        ToggleButton toggle = (ToggleButton) findViewById(R.id.toggleButton);
+        toggle.setText("Register");
+        toggle.setTextOff("Register");
+        toggle.setTextOn("Unregister");
+        toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    DatabaseHandler db = DatabaseHandler.getInstance(getBaseContext());
+
+                    // temp
+                    organization = new Organization();
+                    organization.setOrgName("Epic");
+
+                    db.insertOrganization(organization.getOrgName(), "1", "description");
+
+                } else {
+                    // Remove from the database
+                }
+            }
+        });
+
+
     }
 
     private class GetXMLTask extends AsyncTask<String, Void, Bitmap> {

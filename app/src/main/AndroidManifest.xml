@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.threeamstudios.theorangeloop"
-    android:theme="@android:style/Theme.NoTitleBar"
-    >
+    android:theme="@android:style/Theme.NoTitleBar" >
 
     <!-- Enables HTTPS Requests for organization images -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -13,7 +12,6 @@
         android:label="The Orange Loop"
         android:supportsRtl="true" >
         <activity android:name=".MainActivity" >
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,11 +21,19 @@
         <activity android:name=".MemberHomePage" >
         </activity>
         <activity android:name=".EventPage" >
-        </activity><![CDATA[
+        </activity>
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
+        <activity android:name=".MyOrganizations" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".RegisterForOrganization" >
+        </activity>
 
-    ]]>
+
     </application>
 
 </manifest>

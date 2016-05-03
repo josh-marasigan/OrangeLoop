@@ -63,16 +63,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         + ORG_DESC + " TEXT, "
                         + ORG_SIZE + " INTEGER "
                         + ")";
-        String CREATE_MEMBERS_TABLE =
+        /* String CREATE_MEMBERS_TABLE =
                 "CREATE TABLE " + TABLE_MEMBERS
                         + "("
                         + MEMBER_ID + " INTEGER PRIMARY KEY, "
                         + MEMBER_NAME + " TEXT "
-                        + ")";
+                        + ")"; */
 
         // Execute commands
         db.execSQL(CREATE_ORG_TABLE);
-        db.execSQL(CREATE_MEMBERS_TABLE);
+        // db.execSQL(CREATE_MEMBERS_TABLE);
     }
 
     public boolean insertOrganization(String name, String desc, String size){

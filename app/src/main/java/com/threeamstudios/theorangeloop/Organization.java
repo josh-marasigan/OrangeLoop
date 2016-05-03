@@ -22,7 +22,7 @@ public class Organization {
         this.orgName = orgName;
         this.orgSize = orgSize;
         this.orgMembers = null;
-}
+    }
 
     public Organization(String orgName, Integer orgSize, ArrayList<Member> orgMembers){
         this.orgName = orgName;
@@ -34,9 +34,11 @@ public class Organization {
     public String getOrgName() {
         return orgName;
     }
+
     public Integer getOrgSize() {
         return orgSize;
     }
+
     public ArrayList<Member> getOrgMembers() {
         return orgMembers;
     }

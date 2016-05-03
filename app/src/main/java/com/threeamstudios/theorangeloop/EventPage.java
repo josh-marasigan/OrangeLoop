@@ -9,6 +9,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import java.io.IOException;
@@ -18,8 +19,8 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class EventPage extends Activity {
-
-    private Organization organization;
+    public static boolean flag = true;
+    private Organization organization = new Organization();
     public static final String URL = "https://i.imgur.com/hsePrlh.jpg";
     ImageView imageView;
 
@@ -41,22 +42,40 @@ public class EventPage extends Activity {
         task.execute(new String[]{URL});
 
         ToggleButton toggle = (ToggleButton) findViewById(R.id.toggleButton);
-        toggle.setText("Register");
         toggle.setTextOff("Register");
         toggle.setTextOn("Unregister");
+        if(flag) {
+            toggle.setText("Register");
+            toggle.setTextOff("Register");
+            toggle.setTextOn("Unregister");
+
+        }else {
+            toggle.setText("Unregister");
+            toggle.setTextOff("Unregister");
+            toggle.setTextOn("Register");
+        }
+
+       /* toggle.setTextOff("Register");
+        toggle.setTextOn("Unregister");*/
         toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
+                if (flag) {
                     DatabaseHandler db = DatabaseHandler.getInstance(getBaseContext());
 
                     // temp
                     organization = new Organization();
                     organization.setOrgName("Epic");
 
-                    db.insertOrganization(organization.getOrgName(), "1", "description");
+                    db.insertOrganization(organization.getOrgName(), "description", "1");
+                    flag = false;
 
                 } else {
+                    DatabaseHandler db = DatabaseHandler.getInstance(getBaseContext());
+                    System.out.println(db.getAllOrganization().get(0));
                     // Remove from the database
+                    Toast.makeText(getApplicationContext(),db.getAllOrganization().get(0), Toast.LENGTH_LONG).show();
+                    flag = true;
+
                 }
             }
         });

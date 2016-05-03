@@ -8,6 +8,10 @@
     tools:context="com.threeamstudios.theorangeloop.MemberHomePage"
     android:background="@drawable/paper_bg">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -27,19 +31,14 @@
             android:weightSum="1">
 
             <!-- HTTP Image -->
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="69dp"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/hello"
-                android:maxHeight="70dp"
-                android:maxWidth="70dp" />
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="267dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:weightSum="1">
+                android:weightSum="1"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -101,19 +100,14 @@
             android:id="@+id/club_B">
 
             <!-- HTTP Image -->
-            <ImageView
-                android:id="@+id/imageViewB"
-                android:layout_width="69dp"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/hello"
-                android:maxHeight="70dp"
-                android:maxWidth="70dp" />
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="264dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:weightSum="1">
+                android:weightSum="1"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -174,19 +168,14 @@
             android:id="@+id/club_C">
 
             <!-- HTTP Image -->
-            <ImageView
-                android:id="@+id/imageViewC"
-                android:layout_width="69dp"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/hello"
-                android:maxHeight="70dp"
-                android:maxWidth="70dp" />
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="266dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:weightSum="1">
+                android:weightSum="1"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -240,10 +229,14 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="166dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:weightSum="1"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
 
             <!-- HTTP Image -->
             <ImageView
@@ -302,6 +295,77 @@
                 android:onClick="goToClub" />
         </LinearLayout>
 
+        <!-- Test -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:layout_gravity="center_horizontal"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+            <!-- HTTP Image -->
+            <ImageView
+                android:id="@+id/imageViewE"
+                android:layout_width="69dp"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/hello"
+                android:maxHeight="70dp"
+                android:maxWidth="70dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="IEEE"
+                android:id="@+id/textView11"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#FFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Hardware Sucks"
+                android:id="@+id/textView10"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#FFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="3/30/16"
+                android:id="@+id/textView9"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#FFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="9:00 PM"
+                android:id="@+id/textView8"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#FFFF" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="VIEW"
+                android:id="@+id/button5"
+                android:background="@drawable/small_button_styles"
+                android:textColor="#FFFF"
+                android:layout_gravity="center_horizontal"
+                android:textSize="12dp"
+                android:onClick="goToClub" />
+        </LinearLayout>
+
     </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

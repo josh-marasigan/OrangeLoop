@@ -25,7 +25,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="357dp"
-            android:layout_height="wrap_content"
+            android:layout_height="144dp"
             android:layout_gravity="center_horizontal"
             android:id="@+id/club_A"
             android:weightSum="1">
@@ -35,7 +35,7 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:weightSum="1"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp">
@@ -95,7 +95,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="138dp"
             android:layout_gravity="center_horizontal"
             android:id="@+id/club_B">
 
@@ -104,7 +104,7 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:weightSum="1"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp">

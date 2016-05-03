@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
     tools:context="com.threeamstudios.theorangeloop.MemberHomePage"
     android:background="@drawable/paper_bg">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
     <LinearLayout
         android:orientation="vertical"
@@ -24,18 +24,19 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="357dp"
-            android:layout_height="144dp"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
             android:layout_gravity="center_horizontal"
             android:id="@+id/club_A"
-            android:weightSum="1">
+            android:weightSum="1"
+            android:background="@drawable/club_1">
 
             <!-- HTTP Image -->
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="150dp"
                 android:weightSum="1"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp">
@@ -95,19 +96,20 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="138dp"
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/club_B">
+            android:layout_height="150dp"
+            android:id="@+id/club_B"
+            android:background="@drawable/club_2">
 
             <!-- HTTP Image -->
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="150dp"
                 android:weightSum="1"
                 android:paddingTop="10dp"
-                android:paddingBottom="10dp">
+                android:paddingBottom="10dp"
+                android:baselineAligned="false">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -163,16 +165,18 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/club_C">
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal|right"
+            android:id="@+id/club_C"
+            android:background="@drawable/club_3"
+            android:weightSum="1">
 
             <!-- HTTP Image -->
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:weightSum="1"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp">
@@ -230,7 +234,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:weightSum="1"
             android:layout_gravity="center_horizontal"
             android:paddingStart="0dp"
@@ -299,7 +303,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:weightSum="1"
             android:layout_gravity="center_horizontal"
             android:paddingStart="0dp"

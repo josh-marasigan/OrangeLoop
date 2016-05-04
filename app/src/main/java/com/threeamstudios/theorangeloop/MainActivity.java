@@ -1,7 +1,9 @@
 package com.threeamstudios.theorangeloop;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -28,9 +30,11 @@ public class MainActivity extends Activity {
 
         this.setContentView(R.layout.activity_main);
 
-        // Initialize Controls
-        // Assign Event Handlers to Controls
+        // Initialize DB with simulated server tables
+        DatabaseHandler databaseHandler = new DatabaseHandler(this);
+
         // Establish DataBases and Tables. (Clubs)
+        OrganizationController.mimicInsertDataFromServer(databaseHandler.getInstance(this));
     }
 
     @Override

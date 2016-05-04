@@ -29,8 +29,8 @@ public class TestDB extends AndroidTestCase {
         mem.setName("Kevin");
         ArrayList<Organization> orgList = new ArrayList<Organization>();
 
-        orgList.add(new Organization("TesPA", 0));
-        orgList.add(new Organization("Lions", 10));
+        orgList.add(new Organization("TesPA"));
+        orgList.add(new Organization("Lions"));
         mem.setOrganizationList(orgList);
 
         assertEquals("Kevin", mem.getName());
@@ -44,39 +44,32 @@ public class TestDB extends AndroidTestCase {
       Member mem = new Member();
       mem.setName("Charles");
       ArrayList<Organization> orgList = new ArrayList<Organization>();
-      orgList.add(new Organization("TesPA", 0));
-      orgList.add(new Organization("FSA", 7));
-      orgList.add(new Organization("Lions", 10));
-      orgList.add(new Organization("EE461L", 60));
+      orgList.add(new Organization("TesPA"));
+      orgList.add(new Organization("FSA"));
+      orgList.add(new Organization("Lions"));
+      orgList.add(new Organization("EE461L"));
       mem.setOrganizationList(orgList);
       assertEquals("EE461L", MemberController.bestOrgOfMem(mem));
     }
 
-    public void testBestOrganization() throws Throwable {
+    // public void testBestOrganization() throws Throwable {
+       /* public void testBestOrganization() throws Throwable {
+        >>>>>>> origin/master
+            MemberHomePage.organizationArrayList.add(new Organization("TesPA", 86));
+            MemberHomePage.organizationArrayList.add(new Organization("Lions", 142));
+            MemberHomePage.organizationArrayList.add(new Organization("EE461L", 81));
+            MemberHomePage.organizationArrayList.add(new Organization("FSA", 120));
+            MemberHomePage.organizationArrayList.add(new Organization("VSA", 165));
+            MemberHomePage.organizationArrayList.add(new Organization("CSA", 103));
+            MemberHomePage.organizationArrayList.add(new Organization("TSA", 92));
+            assertEquals("VSA", OrganizationController.bestOrganization());
+        }
+        public void testMakeOrganization() {
+            DatabaseHandler handler = new DatabaseHandler(this.getContext());
 
-   /* public void testBestOrganization() throws Throwable {
->>>>>>> origin/master
-        MemberHomePage.organizationArrayList.add(new Organization("TesPA", 86));
-        MemberHomePage.organizationArrayList.add(new Organization("Lions", 142));
-        MemberHomePage.organizationArrayList.add(new Organization("EE461L", 81));
-        MemberHomePage.organizationArrayList.add(new Organization("FSA", 120));
-        MemberHomePage.organizationArrayList.add(new Organization("VSA", 165));
-        MemberHomePage.organizationArrayList.add(new Organization("CSA", 103));
-        MemberHomePage.organizationArrayList.add(new Organization("TSA", 92));
-        assertEquals("VSA", OrganizationController.bestOrganization());
-    }
-
-    public void testMakeOrganization() {
-        DatabaseHandler handler = new DatabaseHandler(this.getContext());
-
-        handler.insertOrganization("FSA", "Filipino Students Association", "0");
-        System.out.println(handler.getAllOrganization().get(0));
-
-
-    }
-
-
-    }*/
-
-}
+            handler.insertOrganization("FSA", "Filipino Students Association", "0");
+            System.out.println(handler.getAllOrganization().get(0));
+        }
+        }*/
+    // }
 }

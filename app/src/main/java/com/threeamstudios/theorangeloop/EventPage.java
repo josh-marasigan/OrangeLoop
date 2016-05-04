@@ -1,10 +1,12 @@
 package com.threeamstudios.theorangeloop;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
@@ -23,16 +25,20 @@ public class EventPage extends Activity {
     private Organization organization = new Organization();
     public static final String URL = "https://i.imgur.com/hsePrlh.jpg";
     ImageView imageView;
+    public Integer nm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        nm = Intent.EXTRA_DOCK_STATE_CAR;
 
         //Remove title bar
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         //Remove notification bar
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_event_page);
+
         // Get Club Image
         imageView = (ImageView) findViewById(R.id.imageViewClub);
         // Create an object for subclass of AsyncTask
@@ -61,19 +67,23 @@ public class EventPage extends Activity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (flag) {
                     DatabaseHandler db = DatabaseHandler.getInstance(getBaseContext());
-
+                    db.getDataOrganization(nm);
                     // temp
                     organization = new Organization();
-                    organization.setOrgName("Epic");
+                    organization.setOrgName(db.getReadableDatabase().toString());
 
-                    db.insertOrganization(organization.getOrgName(), "description", "1");
+                    db.insertOrganization(organization);
                     flag = false;
 
                 } else {
                     DatabaseHandler db = DatabaseHandler.getInstance(getBaseContext());
                     System.out.println(db.getAllOrganization().get(0));
+
                     // Remove from the database
-                    Toast.makeText(getApplicationContext(),db.getAllOrganization().get(0), Toast.LENGTH_LONG).show();
+                    Toast.makeText(
+                            getApplicationContext(),
+                            db.getAllOrganization().get(0).toString(),
+                            Toast.LENGTH_LONG).show();
                     flag = true;
 
                 }
@@ -136,6 +146,12 @@ public class EventPage extends Activity {
             }
             return stream;
         }
+    }
+
+    public void react(View v) {
+        // Intent transition = new Intent(this, MemberHomePage.class);
+        Intent transition = new Intent(this, MemberHomePage.class);
+        startActivity(transition);
     }
 
 }

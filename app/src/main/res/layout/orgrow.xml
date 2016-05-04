@@ -1,66 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:onClick="addItems">
 
-    <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_gravity="center_horizontal"
-        android:weightSum="1"
-        android:background="@drawable/club_1"
-        >
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:clickable="true"
+    android:visibility="visible">
 
-        <!-- HTTP Image -->
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="210dp"
+            android:id="@+id/imgBG"
+            android:contentDescription="@string/club_img" />
+
+        <!-- Contain Text -->
 
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="1"
-            android:layout_gravity="center">
-
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:weightSum="2"
+            android:padding="3dp"
+            android:baselineAligned="false"
+            android:clickable="false"
+            android:contextClickable="false"
+            android:onClick="addItems">
+            <!-- HTTP Image -->
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Org Name"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="@string/OrgName"
                 android:id="@+id/Org_Name"
-                android:layout_gravity="center_horizontal"
 
-                android:textColor="#FFFF" />
+                android:textColor="#FFFF"
+                android:fontFamily="\@fonts/Quicksand-Light"
+                android:focusableInTouchMode="false"
+                android:textSize="20sp"
+                android:gravity="end"
+                android:layout_weight="1"
+                android:textAlignment="textStart" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Event Name"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="@string/OrgDesc"
                 android:id="@+id/Org_Desc"
-                android:layout_gravity="center_horizontal"
-                android:textColor="#FFFF"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Event Date"
-                android:id="@+id/Org_Date"
-                android:layout_gravity="center_horizontal"
-                android:textColor="#FFFF"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Event Time"
-                android:id="@+id/Org_Time"
-                android:layout_gravity="center_horizontal"
-                android:textColor="#FFFF"/>
+                android:textColor="#FFFF"
+                android:fontFamily="\@fonts/Quicksand-Light"
+                android:textSize="20sp"
+                android:gravity="end"
+                android:textAlignment="textEnd"
+                android:layout_weight="1" />
 
         </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>

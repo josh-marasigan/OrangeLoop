@@ -2,6 +2,7 @@ package com.threeamstudios.theorangeloop;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -14,7 +15,6 @@ public class MasterOrganizationList extends Activity {
     //LIST OF ARRAY STRINGS WHICH WILL SERVE AS LIST ITEMS
     private ListView mainListView ;
     private OrganizationToListViewAdaptor adaptor;
-    ArrayList<String> listItems=new ArrayList<String>();
     ArrayList<Organization> orgList = new ArrayList<Organization>();
 
     //DEFINING A STRING ADAPTER WHICH WILL HANDLE THE DATA OF THE LISTVIEW
@@ -40,13 +40,29 @@ public class MasterOrganizationList extends Activity {
         // Test
         adaptor = new OrganizationToListViewAdaptor(this, orgList);
         mainListView.setAdapter(adaptor);
+        initItems(mainListView);
     }
 
     //METHOD WHICH WILL HANDLE DYNAMIC INSERTION
     public void addItems(View v) {
-        orgList.add(new Organization("Test", 1, new ArrayList<Member>()));
+        // Intent transition = new Intent(this, MemberHomePage.class);
+        Intent transition = new Intent(this, EventPage.class);
+        transition.putExtra("MyData", v.getId());
+        startActivity(transition);
+
+        DatabaseHandler handler = DatabaseHandler.getInstance(this);
+
+        // View all organizations in the GUI
+        orgList.addAll(2, handler.getAllOrganization());
         adaptor.notifyDataSetChanged();
     }
 
+    public void initItems(View v) {
+        // Get Database reference
+        DatabaseHandler handler = DatabaseHandler.getInstance(this);
 
+        // View all organizations in the GUI
+        orgList.addAll(handler.getAllOrganization());
+        adaptor.notifyDataSetChanged();
+    }
 }

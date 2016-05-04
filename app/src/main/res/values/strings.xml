@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">TheOrangeLoop</string>
-    <string name="home_greeting">Get in the Loop!</string>
+    <string name="app_name">Orange Loop</string>
+    <string name="home_greeting">GET IN THE LOOP</string>
     <string name="title_activity_home_page">home_page</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
@@ -106,4 +106,7 @@
     <string name="deleteContact">Are you sure, you want to delete it.</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="OrgName">Org Name</string>
+    <string name="OrgDesc">Event Name</string>
+    <string name="club_img">ClubImage</string>
 </resources>

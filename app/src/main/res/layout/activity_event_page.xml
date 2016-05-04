@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:context="com.threeamstudios.theorangeloop.EventPage"
-    android:background="@drawable/paper_bg">
+    android:background="@drawable/paper_bg"
+    android:padding="10dp"
+    android:clickable="true"
+    android:onClick="react">
 
     <!-- HTTP Image -->
     <ImageView
         android:id="@+id/imageViewClub"
-        android:layout_width="69dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentDescription="@string/hello"
         android:maxHeight="70dp"
@@ -24,11 +24,12 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:id="@+id/linearLayout"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true">
 
         <TextView
             android:layout_width="wrap_content"
@@ -36,10 +37,11 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Event Name"
             android:id="@+id/textView3"
-            android:layout_marginTop="169dp"
+            android:layout_marginTop="10dp"
             android:textColor="#B45F04"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:fontFamily="\@fonts/Quicksand_Light" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -47,7 +49,8 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Group Study"
             android:id="@+id/textView9"
-            android:textColor="#123456"/>
+            android:textColor="#123456"
+            android:fontFamily="\@fonts/Quicksand_Light" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -57,7 +60,8 @@
             android:id="@+id/textView8"
             android:layout_below="@+id/textView3"
             android:layout_centerHorizontal="true"
-            android:textColor="#B45F04" />
+            android:textColor="#B45F04"
+            android:fontFamily="\@fonts/Quicksand_Light" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -75,7 +79,16 @@
             android:layout_gravity="center_horizontal"
             android:layout_below="@+id/imageViewClub"
             android:layout_centerHorizontal="true"
-            android:checked="false" />
+            android:checked="false"
+            android:background="@drawable/button_styles"
+            android:fontFamily="\@fonts/Quicksand-Light"
+            android:textColor="#ffffff"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:padding="0dp"
+            android:visibility="visible" />
 
     </LinearLayout>
 

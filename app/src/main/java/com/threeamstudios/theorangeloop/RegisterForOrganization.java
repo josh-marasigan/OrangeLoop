@@ -20,8 +20,8 @@ public class RegisterForOrganization extends AppCompatActivity {
     TextView name ;
     TextView desc;
     TextView size;
+    TextView imgurl;
     int id_To_Update = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,7 +125,7 @@ public class RegisterForOrganization extends AppCompatActivity {
         {
             int Value = extras.getInt("id");
             if(Value>0){
-                if(mydb.updateOrganization(id_To_Update, name.getText().toString(), desc.getText().toString(), size.getText().toString())){
+                if(mydb.updateOrganization(id_To_Update, name.getText().toString(), desc.getText().toString(), imgurl.getText().toString())){
                     Toast.makeText(getApplicationContext(), "Updated", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                     startActivity(intent);
@@ -135,7 +135,8 @@ public class RegisterForOrganization extends AppCompatActivity {
                 }
             }
             else{
-                if(mydb.insertOrganization(name.getText().toString(), desc.getText().toString(), size.getText().toString())){
+                Organization condition = new Organization(name.getText().toString(), desc.getText().toString(), imgurl.getText().toString());
+                if(mydb.insertOrganization(condition)){
                     Toast.makeText(getApplicationContext(), "done", Toast.LENGTH_SHORT).show();
                 }
 

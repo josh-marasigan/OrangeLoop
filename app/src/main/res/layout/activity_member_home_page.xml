@@ -77,17 +77,6 @@
                     android:layout_gravity="center_horizontal"
                     android:textColor="#FFFF"/>
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:text="VIEW"
-                    android:id="@+id/get_event_1"
-                    android:background="@drawable/small_button_styles"
-                    android:textColor="#FFFF"
-                    android:layout_gravity="center_horizontal"
-                    android:textSize="12dp"
-                    android:onClick="goToClub"/>
-
             </LinearLayout>
 
         </LinearLayout>
@@ -146,17 +135,6 @@
                     android:id="@+id/textView2b"
                     android:layout_gravity="center_horizontal"
                     android:textColor="#FFFF"/>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:text="VIEW"
-                    android:id="@+id/get_event_2"
-                    android:background="@drawable/small_button_styles"
-                    android:textColor="#FFFF"
-                    android:layout_gravity="center_horizontal"
-                    android:textSize="12dp"
-                    android:onClick="goToClub" />
 
             </LinearLayout>
 
@@ -217,17 +195,6 @@
                     android:id="@+id/textView3b"
                     android:layout_gravity="center_horizontal"
                     android:textColor="#FFFF"/>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:text="VIEW"
-                    android:id="@+id/get_event_3"
-                    android:background="@drawable/small_button_styles"
-                    android:textColor="#FFFF"
-                    android:layout_gravity="center_horizontal"
-                    android:textSize="12dp"
-                    android:onClick="goToClub" />
 
             </LinearLayout>
         </LinearLayout>

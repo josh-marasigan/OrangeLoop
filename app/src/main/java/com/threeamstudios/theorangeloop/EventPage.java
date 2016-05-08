@@ -2,6 +2,8 @@ package com.threeamstudios.theorangeloop;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.DatabaseUtils;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -9,11 +11,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.CompoundButton;
+import android.widget.Button;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
+
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,9 +24,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class EventPage extends Activity {
+
+public class EventPage extends Activity implements View.OnClickListener{
     public static boolean flag = true;
     private Organization organization = new Organization();
+    DatabaseHandler db = DatabaseHandler.getInstance(getBaseContext());
 
     private String orgUrl;
     private String orgName;
@@ -31,6 +36,9 @@ public class EventPage extends Activity {
     private ImageView imageView;
     private TextView ren;
     private TextView red;
+    Button button3;
+    Button button4;
+    Button button6;
     // final TextView textName = (TextView)findViewById(R.id.Org_Name);
     // final TextView textDesc = (TextView)findViewById(R.id.Org_Desc);
 
@@ -59,60 +67,33 @@ public class EventPage extends Activity {
         // Set Texts
         imageView = (ImageView) findViewById(R.id.imageViewClub);
 
-        // textName.setText(orgName);
-        // textDesc.setText(orgDesc);
-
         // Create an object for subclass of AsyncTask
         GetXMLTask task = new GetXMLTask();
         task.execute(new String[]{orgUrl});
-
-        ToggleButton toggle = (ToggleButton) findViewById(R.id.toggleButton);
-        toggle.setTextOff("Register");
-        toggle.setTextOn("Unregister");
-        if(flag) {
-            toggle.setText("Register");
-            toggle.setTextOff("Register");
-            toggle.setTextOn("Unregister");
-
-        }else {
-            toggle.setText("Unregister");
-            toggle.setTextOff("Unregister");
-            toggle.setTextOn("Register");
-        }
-
-       /* toggle.setTextOff("Register");
-        toggle.setTextOn("Unregister");*/
-        toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (flag) {
-                    DatabaseHandler db = DatabaseHandler.getInstance(getBaseContext());
-                    db.getDataOrganization(nm);
-                    // temp
-                    organization = new Organization();
-                    organization.setOrgName(db.getReadableDatabase().toString());
-
-                    db.insertOrganization(organization);
-                    flag = false;
-
-                } else {
-                    DatabaseHandler db = DatabaseHandler.getInstance(getBaseContext());
-                    System.out.println(db.getAllOrganization().get(0));
-
-                    // Remove from the database
-                    Toast.makeText(
-                            getApplicationContext(),
-                            db.getAllOrganization().get(0).toString(),
-                            Toast.LENGTH_LONG).show();
-                    flag = true;
-
-                }
-            }
-        });
-
         ren = (TextView) findViewById(R.id.RegisteredEventName);
         red = (TextView) findViewById(R.id.RegisteredEventDesc);
         ren.setText(this.orgName);
         red.setText(this.orgDesc);
+
+        //set Button Actions
+        button3 = (Button)findViewById(R.id.button3);
+       button3.setOnClickListener(this);
+        button4 = (Button)findViewById(R.id.button4);
+       button4.setOnClickListener(this);
+        button6 = (Button)findViewById(R.id.button6);
+        button6.setOnClickListener(this);
+
+
+        //DatabaseHandler db = DatabaseHandler.getInstance(getBaseContext());
+        //set text for button
+
+
+        organization = db.getRegisteredOrgFromString(orgName);
+        if(organization.getOrgName() == null){
+            button4.setText("Register");
+        }else{
+            button4.setText("Unregister");
+        }
 
     }
 
@@ -172,11 +153,63 @@ public class EventPage extends Activity {
             return stream;
         }
     }
-
-    public void react(View v) {
-        // Intent transition = new Intent(this, MemberHomePage.class);
-        Intent transition = new Intent(this, MemberHomePage.class);
-        startActivity(transition);
+    @Override
+    public void onClick(View view) {
+        switch (view.getId())
+        {
+            case R.id.button3:
+                button3Click();
+                break;
+            case R.id.button4:
+                button4Click();
+                break;
+            case R.id.button6:
+                button6Click();
+                break;
+        }
+    }
+    private void button3Click(){// go to my personilzed org listing
+        startActivity(new Intent(this, MemberHomePage.class));
     }
 
+    private void button4Click(){
+        DatabaseHandler db = DatabaseHandler.getInstance(getBaseContext());
+        // Organization org = new Organization();
+        Organization org = db.getRegisteredOrgFromString(orgName);
+        //
+        if(org.getOrgName() == null){
+            button4.setText("Unregister");
+            org.setOrgName(orgName);
+            db.insertRegisteredOrganization(org);
+
+        }else{
+            button4.setText("Register");
+            db.deleteRegistered(orgName);
+
+        }
+
+
+           // button4.setText("Unregister");
+
+           // db.getDataOrganization(nm);
+          /*  organization = new Organization();
+            organization.setOrgName(orgName);
+            organization.setOrgDesc(orgDesc);
+            db.insertRegisteredOrganization(organization);*/
+    }
+
+    private void button6Click(){
+        DatabaseHandler dbh = DatabaseHandler.getInstance(getBaseContext());
+        SQLiteDatabase db = dbh.getReadableDatabase();
+        long num = DatabaseUtils.queryNumEntries(db, "registered");
+        String strLong = Long.toString(num);
+        Toast.makeText(
+                getApplicationContext(),strLong,
+
+                Toast.LENGTH_LONG).show();
+
+    }
+    public void react(View v){
+        
+    }
 }

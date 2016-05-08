@@ -71,24 +71,29 @@
             android:id="@+id/RegisteredEventDesc"
             android:textColor="#123456"/>
 
-        <ToggleButton
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Register"
-            android:id="@+id/toggleButton"
-            android:layout_gravity="center_horizontal"
-            android:layout_below="@+id/imageViewClub"
-            android:layout_centerHorizontal="true"
-            android:checked="false"
-            android:background="@drawable/button_styles"
-            android:fontFamily="\@fonts/Quicksand-Light"
-            android:textColor="#ffffff"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:paddingTop="0dp"
-            android:paddingBottom="0dp"
-            android:padding="0dp"
-            android:visibility="visible" />
+            android:text="New Button"
+            android:id="@+id/button4"
+            android:layout_gravity="right" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View My Orgs"
+            android:id="@+id/button3"
+            android:layout_gravity="right" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of Orgs"
+            android:id="@+id/button6"
+            android:layout_gravity="right" />
+
+
 
     </LinearLayout>
 

@@ -57,7 +57,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         // Create Total Organization Table. Replicate Server Call
         instantiateOrganizationTable(db);
-        instantiateRegisteredOrganizationsTable(db);
+        //instantiateRegisteredOrganizationsTable(db);
     }
 
     private void clearOldDB(SQLiteDatabase db) {
@@ -161,7 +161,26 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         return retOrg;
     }
+    public boolean deleteRegistered(String name)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_REGISTERED, ORG_NAME + " = '" + name + "'", null) > 0;
+    }
 
+    public Organization getRegisteredOrgFromString (String orgName) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor org = db.rawQuery("SELECT * FROM " + TABLE_REGISTERED + " WHERE " + ORG_NAME + " = '" + orgName + "'", null);
+        Organization retOrg = new Organization();
+
+        // Get url
+        if(org.moveToFirst()) {
+            retOrg.setOrgName(org.getString(org.getColumnIndex(ORG_NAME)));
+            retOrg.setOrgDesc(org.getString(org.getColumnIndex(ORG_DESC)));
+            retOrg.setImageURL(org.getString(org.getColumnIndex(ORG_URL)));
+        }
+
+        return retOrg;
+    }
     public boolean updateOrganization(Integer id, String name, String desc, String size) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();

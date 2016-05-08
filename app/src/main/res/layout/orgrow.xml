@@ -5,14 +5,15 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_gravity="center"
-        android:clickable="true"
+        android:descendantFocusability="blocksDescendants"
     android:visibility="visible">
 
         <ImageView
             android:layout_width="fill_parent"
             android:layout_height="210dp"
             android:id="@+id/imgBG"
-            android:contentDescription="@string/club_img" />
+            android:contentDescription="@string/club_img"
+            />
 
         <!-- Contain Text -->
 
@@ -22,10 +23,7 @@
             android:layout_height="fill_parent"
             android:weightSum="2"
             android:padding="3dp"
-            android:baselineAligned="false"
-            android:clickable="false"
-            android:contextClickable="false"
-            android:onClick="addItems">
+            android:baselineAligned="false">
             <!-- HTTP Image -->
             <TextView
                 android:layout_width="fill_parent"

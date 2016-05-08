@@ -78,8 +78,18 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                         + ORG_URL + " TEXT"
                         + ")";
 
+        String CREATE_REG_TABLE =
+                "CREATE TABLE " + TABLE_REGISTERED
+                        + "("
+                        + ORG_ID + " INTEGER PRIMARY KEY, "
+                        + ORG_NAME + " TEXT, "
+                        + ORG_SIZE + " INTEGER, "
+                        + ORG_DESC + " TEXT, "
+                        + ORG_URL + " TEXT"
+                        + ")";
         // Execute commands
         db.execSQL(CREATE_ORG_TABLE);
+        db.execSQL(CREATE_REG_TABLE);
     }
 
     public void instantiateRegisteredOrganizationsTable(SQLiteDatabase db) {
@@ -100,6 +110,21 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     // For object params
+    public boolean insertRegisteredOrganization(Organization org) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(ORG_NAME, org.getOrgName());
+        contentValues.put(ORG_SIZE, 0);
+        contentValues.put(ORG_DESC, org.getOrgDesc());
+        contentValues.put(ORG_URL, org.getImageURL());
+
+        //db.insert(TABLE_ORGANIZATIONS, null, contentValues);
+        db.insert(TABLE_REGISTERED, null, contentValues);
+        return true;
+    }
+
+    // For object params
     public boolean insertOrganization(Organization org) {
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -115,40 +140,26 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return true;
     }
 
-    /*
-    public boolean insertOrganization(String name, String desc, String size){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("name", name);
-        contentValues.put("size", size);
-        contentValues.put("desc", desc);
-        contentValues.put("url", "http://imgur.com/JgT66Ws");
-
-        //db.insert(TABLE_ORGANIZATIONS, null, contentValues);
-        db.insert("organizations", null, contentValues);
-        return true;
-    }
-
-
-    public boolean insertOrganization(String name, String desc, String size, String img_url){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("name", name);
-        contentValues.put("size", size);
-        contentValues.put("desc", desc);
-        contentValues.put("url", img_url);
-
-        //db.insert(TABLE_ORGANIZATIONS, null, contentValues);
-        db.insert("organizations", null, contentValues);
-        return true;
-    }
-
-    */
-
     public Cursor getDataOrganization(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("select * from organizations where id=" + id + "", null);
+        Cursor res = db.rawQuery("select * from organizations where id = " + id + "", null);
         return res;
+    }
+
+    public Organization getOrgFromString (String orgName) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor org = db.rawQuery("SELECT * FROM " + TABLE_ORGANIZATIONS + " WHERE " + ORG_NAME + " = '" + orgName + "'", null);
+
+        Organization retOrg = new Organization();
+
+        // Get url
+        if(org.moveToFirst()) {
+            retOrg.setOrgName(org.getString(org.getColumnIndex(ORG_NAME)));
+            retOrg.setOrgDesc(org.getString(org.getColumnIndex(ORG_DESC)));
+            retOrg.setImageURL(org.getString(org.getColumnIndex(ORG_URL)));
+        }
+
+        return retOrg;
     }
 
     public boolean updateOrganization(Integer id, String name, String desc, String size) {

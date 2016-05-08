@@ -11,6 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -23,29 +24,47 @@ import java.net.URLConnection;
 public class EventPage extends Activity {
     public static boolean flag = true;
     private Organization organization = new Organization();
-    public static final String URL = "https://i.imgur.com/hsePrlh.jpg";
-    ImageView imageView;
+
+    private String orgUrl;
+    private String orgName;
+    private String orgDesc;
+    private ImageView imageView;
+    private TextView ren;
+    private TextView red;
+    // final TextView textName = (TextView)findViewById(R.id.Org_Name);
+    // final TextView textDesc = (TextView)findViewById(R.id.Org_Desc);
+
     public Integer nm;
+    private Bundle ext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Get intent from master list
+        ext = getIntent().getExtras();
+        orgName = ext.getString("Org_Name");
+        orgDesc = ext.getString("Org_Desc");
+        orgUrl = ext.getString("Org_URL");
+
         nm = Intent.EXTRA_DOCK_STATE_CAR;
 
         //Remove title bar
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         //Remove notification bar
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_event_page);
 
-        // Get Club Image
+        // Set Texts
         imageView = (ImageView) findViewById(R.id.imageViewClub);
+
+        // textName.setText(orgName);
+        // textDesc.setText(orgDesc);
+
         // Create an object for subclass of AsyncTask
         GetXMLTask task = new GetXMLTask();
-        // Execute the task
-        // Surround w/ loop
-        task.execute(new String[]{URL});
+        task.execute(new String[]{orgUrl});
 
         ToggleButton toggle = (ToggleButton) findViewById(R.id.toggleButton);
         toggle.setTextOff("Register");
@@ -89,6 +108,12 @@ public class EventPage extends Activity {
                 }
             }
         });
+
+        ren = (TextView) findViewById(R.id.RegisteredEventName);
+        red = (TextView) findViewById(R.id.RegisteredEventDesc);
+        ren.setText(this.orgName);
+        red.setText(this.orgDesc);
+
     }
 
     private class GetXMLTask extends AsyncTask<String, Void, Bitmap> {

@@ -13,6 +13,7 @@ public class Organization {
     private Integer orgSize;
     private String orgDesc;
     private String imageURL;
+    private Integer id;
 
     // Array of members pertaining to said organization
     private ArrayList<Member> orgMembers;
@@ -87,6 +88,22 @@ public class Organization {
         catch(Exception e) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public void setOrgDesc(String orgDesc) {
+        this.orgDesc = orgDesc;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
 }

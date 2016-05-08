@@ -2,11 +2,16 @@ package com.threeamstudios.theorangeloop;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.view.View.OnClickListener;
 
 import java.util.ArrayList;
 
@@ -29,33 +34,42 @@ public class MasterOrganizationList extends Activity {
         setContentView(R.layout.activity_master_organization_list);
 
         // Find the ListView resource.
-        mainListView = (ListView) findViewById(R.id.list);
+        // mainListView = (ListView) findViewById(R.id.list);
+        // mainListView.setOnItemClickListener(eventListener);
 
-        // Params: Context, Layout, Organization Into
-        /* adapter=new ArrayAdapter<String>(
-                this,
-                android.R.layout.simple_list_item_1,
-                listItems); */
+        ((ListView) findViewById(R.id.list)).setOnItemClickListener(eventListener);
 
         // Test
         adaptor = new OrganizationToListViewAdaptor(this, orgList);
-        mainListView.setAdapter(adaptor);
-        initItems(mainListView);
+        ((ListView) findViewById(R.id.list)).setAdapter(adaptor);
+        initItems(findViewById(R.id.list));
     }
 
-    //METHOD WHICH WILL HANDLE DYNAMIC INSERTION
-    public void addItems(View v) {
-        // Intent transition = new Intent(this, MemberHomePage.class);
-        Intent transition = new Intent(this, EventPage.class);
-        transition.putExtra("MyData", v.getId());
-        startActivity(transition);
+    // METHOD WHICH WILL HANDLE DYNAMIC INSERTION
+    // Fix transition bug
 
-        DatabaseHandler handler = DatabaseHandler.getInstance(this);
+    private AdapterView.OnItemClickListener eventListener = new AdapterView.OnItemClickListener() {
 
-        // View all organizations in the GUI
-        orgList.addAll(2, handler.getAllOrganization());
-        adaptor.notifyDataSetChanged();
-    }
+        public void onItemClick(AdapterView adapterView, View v, int pos, long ids) {
+            // Get org fields
+            TextView name = (TextView) v.findViewById(R.id.Org_Name);
+            TextView desc = (TextView) v.findViewById(R.id.Org_Desc);
+
+            DatabaseHandler dbHandler = new DatabaseHandler(getBaseContext());
+            String orgUrl = dbHandler.getOrgFromString(name.getText().toString()).getImageURL();
+
+            // Put extras
+            Bundle sender = new Bundle();
+            sender.putString("Org_Name", name.getText().toString());
+            sender.putString("Org_Desc", desc.getText().toString());
+            sender.putString("Org_URL", orgUrl);
+
+            // Intent transition = new Intent(this, MemberHomePage.class);
+            Intent transition = new Intent(MasterOrganizationList.this, EventPage.class);
+            transition.putExtras(sender);
+            startActivity(transition);
+        }
+    };
 
     public void initItems(View v) {
         // Get Database reference

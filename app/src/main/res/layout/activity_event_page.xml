@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Group Study"
-            android:id="@+id/textView9"
+            android:id="@+id/RegisteredEventName"
             android:textColor="#123456"
             android:fontFamily="\@fonts/Quicksand_Light" />
 
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:text="Students get ready for FINALS"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/EventName1"
+            android:id="@+id/RegisteredEventDesc"
             android:textColor="#123456"/>
 
         <ToggleButton

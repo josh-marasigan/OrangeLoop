@@ -9,12 +9,6 @@
     android:background="@drawable/paper_bg"
     android:textAlignment="center">
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-
-    </ScrollView>
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"

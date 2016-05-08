@@ -57,7 +57,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         // Create Total Organization Table. Replicate Server Call
         instantiateOrganizationTable(db);
-        instantiateRegisteredOrganizationsTable(db);
+        //instantiateRegisteredOrganizationsTable(db);
     }
 
     private void clearOldDB(SQLiteDatabase db) {

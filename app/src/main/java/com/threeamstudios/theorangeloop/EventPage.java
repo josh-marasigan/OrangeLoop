@@ -56,9 +56,6 @@ public class EventPage extends Activity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_event_page);
 
-        // Set Texts
-        imageView = (ImageView) findViewById(R.id.imageViewClub);
-
         // textName.setText(orgName);
         // textDesc.setText(orgDesc);
 
@@ -113,6 +110,9 @@ public class EventPage extends Activity {
         red = (TextView) findViewById(R.id.RegisteredEventDesc);
         ren.setText(this.orgName);
         red.setText(this.orgDesc);
+
+        // Set Texts
+        imageView = (ImageView) findViewById(R.id.imageViewClub);
 
     }
 

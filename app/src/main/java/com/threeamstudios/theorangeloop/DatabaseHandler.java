@@ -235,6 +235,32 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return array_list;
     }
 
+    public ArrayList<Organization> getAllRegisteredOrganization() {
+        ArrayList<Organization> array_list = new ArrayList<Organization>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        //Cursor res =  db.rawQuery( "select name from organizations", null );
+        Cursor res = null;
+        String Query = "SELECT * FROM registered";
+
+        res = db.rawQuery(Query, null);
+        if (res != null && res.moveToFirst()) {
+            do {
+                // Select particular Organization Data from DB
+                Organization track = new Organization(
+                        res.getString(res.getColumnIndex(ORG_NAME)),
+                        res.getString(res.getColumnIndex(ORG_DESC)),
+                        res.getString(res.getColumnIndex(ORG_URL)));
+
+                array_list.add(track);
+            } while (res.moveToNext());
+
+        }
+        res.close();
+
+        return array_list;
+    }
+
     // Update Database when need be
     // Upgrading database
     @Override

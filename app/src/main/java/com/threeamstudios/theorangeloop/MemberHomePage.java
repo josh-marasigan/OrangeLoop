@@ -9,7 +9,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,47 +24,33 @@ import java.util.ArrayList;
 
 public class MemberHomePage extends Activity {
 
-    public static ArrayList<Organization> organizationArrayList;
+    public static ArrayList<Organization> organizationArrayList = new ArrayList<Organization>();
+
+    //LIST OF ARRAY STRINGS WHICH WILL SERVE AS LIST ITEMS
+    private ListView mainListView ;
+    private RegisteredOrganizationAdaptor adaptor;
+
+    //DEFINING A STRING ADAPTER WHICH WILL HANDLE THE DATA OF THE LISTVIEW
+    ArrayAdapter<String> adapter;
+
     private static ArrayList<String> URLfields;
-
-    protected static void getImageURL() {
-        String temp0 = "https://i.imgur.com/hsePrlh.jpg";
-        String temp1 = "https://i.imgur.com/l23SwNr.jpg";
-        String temp2 = "https://i.imgur.com/doO0i5L.jpg";
-        String temp3 = "https://i.imgur.com/2DrzOh2.jpg";
-
-        URLfields.add(temp0);
-        URLfields.add(temp1);
-        URLfields.add(temp2);
-        URLfields.add(temp3);
-    }
-
-    public static final String URL =
-            "https://i.imgur.com/ZCUZZfw.jpg";
 
     ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //Remove title bar
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-        //Remove notification bar
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         setContentView(R.layout.activity_member_home_page);
 
-        // imageView = (ImageView) findViewById(R.id.imageView);
+        // Find the ListView resource.
+        // mainListView = (ListView) findViewById(R.id.list);
+        // mainListView.setOnItemClickListener(eventListener);
 
-        // Create an object for subclass of AsyncTask
-        // GetXMLTask task = new GetXMLTask();
-        // Execute the task
-
-        // Surround w/ loop
-
-        // task.execute(new String[]{URL});
+        // Test
+        // organizationArrayList.add(new Organization("Fill"));
+        adaptor = new RegisteredOrganizationAdaptor(this, organizationArrayList);
+        ((ListView) findViewById(R.id.list)).setAdapter(adaptor);
+        initItems(findViewById(R.id.list));
     }
 
     // Executes with button interaction. Goes to club event page.
@@ -124,6 +114,17 @@ public class MemberHomePage extends Activity {
             }
             return stream;
         }
+    }
+
+    // METHOD WHICH WILL HANDLE DYNAMIC INSERTION
+    // Fix transition bug
+    public void initItems(View v) {
+        // Get Database reference
+        DatabaseHandler handler = DatabaseHandler.getInstance(this);
+
+        // View all organizations in the GUI
+        organizationArrayList.addAll(handler.getAllRegisteredOrganization());
+        adaptor.notifyDataSetChanged();
     }
 
 }

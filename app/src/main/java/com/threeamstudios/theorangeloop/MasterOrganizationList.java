@@ -16,7 +16,7 @@ import android.view.View.OnClickListener;
 import java.util.ArrayList;
 
 public class MasterOrganizationList extends Activity {
-
+    public static ArrayList<Organization> registeredList = new ArrayList<Organization>();
     //LIST OF ARRAY STRINGS WHICH WILL SERVE AS LIST ITEMS
     private ListView mainListView ;
     private OrganizationToListViewAdaptor adaptor;
@@ -78,5 +78,9 @@ public class MasterOrganizationList extends Activity {
         // View all organizations in the GUI
         orgList.addAll(handler.getAllOrganization());
         adaptor.notifyDataSetChanged();
+    }
+
+    public static void addToRegList(Organization org) {
+        registeredList.add(org);
     }
 }

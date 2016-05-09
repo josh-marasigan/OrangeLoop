@@ -5,7 +5,7 @@
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     android:paddingBottom="0dp"
-    tools:context="com.threeamstudios.theorangeloop.MemberHomePage"
+    tools:context="com.threeamstudios.theorangeloop.MasterOrganizationList"
     android:background="@drawable/paper_bg"
     android:textAlignment="center">
 

@@ -64,13 +64,13 @@ public class EventPage extends Activity implements View.OnClickListener{
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_event_page);
 
-<<<<<<< HEAD
+
         // textName.setText(orgName);
         // textDesc.setText(orgDesc);
-=======
+//=======
         // Set Texts
         imageView = (ImageView) findViewById(R.id.imageViewClub);
->>>>>>> e019c9ec87b68b0fd25077559765fa8ffac27bcf
+//>>>>>>> e019c9ec87b68b0fd25077559765fa8ffac27bcf
 
         // Create an object for subclass of AsyncTask
         GetXMLTask task = new GetXMLTask();
@@ -80,10 +80,10 @@ public class EventPage extends Activity implements View.OnClickListener{
         ren.setText(this.orgName);
         red.setText(this.orgDesc);
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
         // Set Texts
         imageView = (ImageView) findViewById(R.id.imageViewClub);
-=======
+//=======
         //set Button Actions
         button3 = (Button)findViewById(R.id.button3);
        button3.setOnClickListener(this);
@@ -103,7 +103,7 @@ public class EventPage extends Activity implements View.OnClickListener{
         }else{
             button4.setText("Unregister");
         }
->>>>>>> e019c9ec87b68b0fd25077559765fa8ffac27bcf
+//>>>>>>> e019c9ec87b68b0fd25077559765fa8ffac27bcf
 
     }
 
@@ -189,15 +189,18 @@ public class EventPage extends Activity implements View.OnClickListener{
         //
         if(org.getOrgName() == null){
             button4.setText("Unregister");
+            org = new Organization(orgName);
             org.setOrgName(orgName);
-            db.insertRegisteredOrganization(org);
+            org.setOrgDesc("TEMP");
 
+
+            db.insertRegisteredOrganization(org);
+            // MasterOrganizationList.addToRegList(org);
         }else{
             button4.setText("Register");
             db.deleteRegistered(orgName);
 
         }
-
 
            // button4.setText("Unregister");
 
@@ -217,9 +220,14 @@ public class EventPage extends Activity implements View.OnClickListener{
                 getApplicationContext(),strLong,
 
                 Toast.LENGTH_LONG).show();
-
     }
     public void react(View v){
         
+    }
+
+    public void viewMy(View v){
+        // Intent transition = new Intent(this, MemberHomePage.class);
+        Intent transition = new Intent(EventPage.this, MemberHomePage.class);
+        startActivity(transition);
     }
 }

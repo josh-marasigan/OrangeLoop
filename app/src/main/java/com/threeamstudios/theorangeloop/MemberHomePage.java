@@ -39,6 +39,10 @@ public class MemberHomePage extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        // mainListView.setAdapter(null);
+        // ((ListView) findViewById(R.id.list)).setAdapter(null);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member_home_page);
 
@@ -49,6 +53,11 @@ public class MemberHomePage extends Activity {
         // Test
         // organizationArrayList.add(new Organization("Fill"));
         adaptor = new RegisteredOrganizationAdaptor(this, organizationArrayList);
+
+        // Remove Old
+        ((ListView) findViewById(R.id.list)).invalidateViews();
+        ((ListView) findViewById(R.id.list)).setAdapter(null);
+
         ((ListView) findViewById(R.id.list)).setAdapter(adaptor);
         initItems(findViewById(R.id.list));
     }
@@ -121,6 +130,9 @@ public class MemberHomePage extends Activity {
     public void initItems(View v) {
         // Get Database reference
         DatabaseHandler handler = DatabaseHandler.getInstance(this);
+
+        organizationArrayList.clear();
+        adaptor.notifyDataSetChanged();
 
         // View all organizations in the GUI
         organizationArrayList.addAll(handler.getAllRegisteredOrganization());
